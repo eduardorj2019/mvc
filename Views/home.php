@@ -2,7 +2,7 @@
 <html lang={{ 'pt_BR'|locale_name }}>
 <head>
 	<title>MVC Simples</title>
-	<link href="app.css" />
+	<link href="assets/css/app.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -13,11 +13,13 @@
 				<th>Nome</th>
 				<th>Email</th>
 			</tr>
+			{% for usuario in dados %}
 			<tr>
-				<td>{{dados.nome}}</td>
-				<td>{{dados.email}}</td>
-			</tr>	
+				<td>{{usuario.nome}}</td>
+				<td>{{usuario.email}}</td>
+			</tr>
+			{% endfor %}	
 		</table>
-<script src="app.js"></script>
+<script src="assets/js/app.min.js"></script>
 </body>
 </html>

@@ -27,7 +27,8 @@ class Controller
 			echo $run;
 
 		} catch(Exception $e) {
-			echo "erro";
+			throw new Exception("Erro de Template");
+			
 		}
 	}
 }

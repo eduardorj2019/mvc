@@ -1,0 +1,29 @@
+{
+  "name": "mvc",
+  "version": "1.0.0",
+  "description": "projeto de mvc",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_ENV=development gulp",
+    "prod":"NODE_ENV=production gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardorj2019/mvc.git"
+  },
+  "author": "eduardo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eduardorj2019/mvc/issues"
+  },
+  "homepage": "https://github.com/eduardorj2019/mvc#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-mode": "^1.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.13.0"
+  }
+}

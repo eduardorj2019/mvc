@@ -12,6 +12,10 @@ $route = new Router(BASE_URL);
 // namespace do controller
 $route->namespace('Controllers');
 $route->get('/', 'HomeController:index');
+$route->get('/login','LoginController:index');
+
 
 $route->dispatch();
+
+
 

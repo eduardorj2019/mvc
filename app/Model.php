@@ -4,10 +4,13 @@ namespace app;
 
 class Model
 {	
+
+	use Help;
 	/***
 	**@var atributo protegido da class pai
 	***/
 	protected $pdo;
+	private $table;
 
 	public function __construct()
 	{
@@ -16,7 +19,19 @@ class Model
 				array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
 			$this->pdo = $pdo;
 		} catch (\PDOException $e) {
-			throw new Exception("Error Processing Request", $e->getMessage());
+			throw new \Exception("Error Processing Request".$e->getMessage());
 		}
 	}
+
+	public function getTable()
+	{
+		return $this->table();
+	}
+
+	public function setTable($table)
+	{
+		$this->table = $table;
+	}
+
+
 }

@@ -8,17 +8,12 @@ class App
 {
 	public function boot()
 	{
-		$url = isset($_GET['route']) ? explode('/',$_GET['route'])[0] : 'home';
+		$url = isset($_GET['route']) ? explode('/',$_GET['route'])[1] : 'home';
 		$url = ucfirst($url);
 		$url .= 'Controller';
-		$path = '\Controllers\\';
-		
-		if (file_exists('../Controllers/'.$url.'.php')) {
-			$prefix = $path.$url;
-			$c = new $prefix();
-		} else {
+		if (!file_exists('../Controllers/'.$url.'.php')) {
 			echo "404";
-		}		
+		}				
 
 	}
 }
