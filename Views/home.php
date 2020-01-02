@@ -6,6 +6,9 @@
 </head>
 
 <body>
+	<div class="logouf">
+		<a href="../public/login/logout">Sair</a>
+	</div>
 	<h1>HOME</h1>
 	<p>BEM VINDO AO MVC</p>
 		<table>

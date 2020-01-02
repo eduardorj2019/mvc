@@ -17,14 +17,15 @@ class HomeController extends Controller
 		** no metodo construtor, tem que chama use Auth\Auth
 		** antes do metodo contrutor assim vai para tela de login
 		***/
+
+		$this->middleware('auth');
 	}
 
 	public function index()
 	{	
 		$usuarios = new User;
-
-		exit;
-		//$data['dados'] = $usuarios->all();
+		$data['dados'] = $usuarios->all();
+		
 		return $this->view('home',$data);
 	}
 

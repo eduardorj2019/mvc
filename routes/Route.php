@@ -13,7 +13,8 @@ $route = new Router(BASE_URL);
 $route->namespace('Controllers');
 $route->get('/', 'HomeController:index');
 $route->get('/login','LoginController:index');
-
+$route->post('/login','LoginController:show');
+$route->get('/login/logout','LoginController:logout');
 
 $route->dispatch();
 
