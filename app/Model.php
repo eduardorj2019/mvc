@@ -23,12 +23,12 @@ class Model
 		}
 	}
 
-	public function getTable()
+	public function getTable(): object
 	{
 		return $this->table();
 	}
 
-	public function setTable($table)
+	public function setTable(string $table): void
 	{
 		$this->table = $table;
 	}

@@ -2,8 +2,6 @@
 
 namespace app;
 
-include_once '../routes/Route.php';
-
 class App
 {
 	public function boot()

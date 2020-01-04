@@ -11,7 +11,7 @@ site da biblioteca de template, para mais detalhes acessa o site
 
 class Controller
 {
-	public function view ($viewName,$viewData = array())
+	public function view (string $viewName,array $viewData = array()): void
 	{
 		try{
 			extract($viewData);

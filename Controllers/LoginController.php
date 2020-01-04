@@ -21,33 +21,35 @@ class LoginController extends Controller
 		$usuario = new User;
 		$data = [
 					'email'=>$_POST['email'],
-					'senha'=>md5($_POST['senha'])
+					'senha'=>$_POST['senha']
 				];
 
 		if ($this->validate($data)) {
 			
 			if ($usuario->authentication($data)) {
-				header('Location:'.BASE_URL.'/');
+				$this->redirect();
 			} else {
-				header('Location:'.BASE_URL.'/login');
+				$data['with'] = $this->with('danger','Usuário ou senha invalido');
 			}		
 
 		} else {
-			header('Location:'.BASE_URL.'/login');
-		}		
+			$data['input'] = $this->input('senha menor que 4 caracteres');
+		}
+
+		return $this->view('login',$data);		
 	}
 
 	/***
 	**@param metodo para validar os dados que vem do login 
 	***/
-	private function validate($request)
+	private function validate(array $request): bool
 	{
-		if (filter_var_array($request,FILTER_VALIDATE_EMAIL)) { 
+		if (filter_var($request['email'],FILTER_VALIDATE_EMAIL)) { 
 
-			if (strlen($request['senha']) < 4) {
-				return false;
-			} else {
+			if (strlen($request['senha']) > 4) {
 				return true;
+			} else {
+				return false;
 			}
 
 		} else {
@@ -55,8 +57,11 @@ class LoginController extends Controller
 		}
 	}
 
+	/***
+	**@param metodo para destruir sessão
+	***/
 	public function logout()
 	{
-		$this->destruySession();
+		$this->destroySession();
 	}
 }

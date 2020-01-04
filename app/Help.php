@@ -6,7 +6,7 @@ trait Help
 {	
 	private $identification;
 
-	protected function table()
+	protected function table(): object
 	{
 		return $this->table;
 	}
@@ -15,7 +15,7 @@ trait Help
 		return $this->pdo;
 	}
 
-	public function all() :array
+	public function all(): array
 	{	
 		$query = "SELECT * FROM {$this->table}";
 		$sql = $this->pdo->prepare($query);
@@ -37,7 +37,7 @@ trait Help
 
 	}
 
-	public function authentication($data)
+	public function authentication(array $data): bool
 	{
 		$query = "SELECT * FROM usuarios WHERE ";
 		$count = 1;
@@ -62,25 +62,31 @@ trait Help
 			return false;
 		}
 		
-
 	}
 
-	private function params($data,$sql)
+	private function params(array $data,object $sql): void
 	{
 		foreach ($data as $key => $value) {
+			if ($key == 'senha'){
+				$value = $this->hash($value);	
+			}
 			$this->param($sql,$key,$value);
 		}
 	}
 
-	private function param($sql,$key,$value)
+	private function param(object $sql,string $key,string $value): void
 	{	
-		$sql->bindparam(":{$key}",$value);
-			
+		$sql->bindparam(":{$key}",$value);	
 	}
 
-	public function identification($help)
+	public function identification($help): void
 	{
 		$_SESSION['id'] = $help;
+	}
+
+	private function hash(string $password):string 
+	{
+		return md5($password);
 	}
 
 }

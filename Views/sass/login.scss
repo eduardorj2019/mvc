@@ -43,6 +43,20 @@ body{
 	}
 }
 
+.msg{
+	width:500px;
+	position: absolute;
+	top:40vh;
+	text-align: center;
+	.alert-danger{
+		background: red;
+		width:100%;
+		color:#fff;
+		height:50px;
+		line-height: 50px;
+	}
+}
+
 .box{
 	width:450px;
 	height:320px;
@@ -66,6 +80,11 @@ body{
 		display: flex;
 		flex-direction: column;
 		width: 320px;
+		.danger{
+			color:red;
+			font-size: 0.85em;
+			margin-top: -12px;
+		}
 		span{
 			position: relative;
 			top:-24px;

@@ -10,18 +10,26 @@
 <body>
 	<div class="container">
 		<div class="images"><i class="fa fa-user"></i></div>
+		{% if with %}
+		<div class="msg">
+				<div class="alert alert-{{with.type}}">{{with.message}}</div>
+		</div>
+		{% endif %}
 		<div class="box">
-			<h1>Tela de Login</h1>
+			<h1>Tela de Login</h1>	
 			<form method="post">
 				<div class="form-group">
 					<label for="usuario">Usuário:</label>
-					<input type="email" name="email" id="usuario" placeholder="usuario@exemplo.com">
+					<input type="email" name="email" id="usuario" value="{{email}}" placeholder="usuario@exemplo.com">
 					<span class="fas fa-envelope"></span>
 				</div>
 				<div class="form-group">
 					<label for="senha">Senha:</label>
 					<input type="password" name="senha" id="senha" placeholder="Senha">
 					<span class="fa fa-key"></span>
+					{% if input %}
+					<div class="danger">{{input}}</div>
+					{%endif%}
 				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-success">Enviar</button>

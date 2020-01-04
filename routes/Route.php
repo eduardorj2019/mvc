@@ -12,6 +12,8 @@ $route = new Router(BASE_URL);
 // namespace do controller
 $route->namespace('Controllers');
 $route->get('/', 'HomeController:index');
+
+//login
 $route->get('/login','LoginController:index');
 $route->post('/login','LoginController:show');
 $route->get('/login/logout','LoginController:logout');
